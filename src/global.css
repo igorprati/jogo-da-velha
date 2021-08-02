@@ -15,8 +15,13 @@ body {
     align-items: center;
 } */
 
-div .tela {
-    background-color: aqua;
+.tela {
+    background: linear-gradient(
+        to right top,
+        #BBD2C5,
+        #536976,
+        #5D26C1
+    );
     height: 100vh;
     display: flex;
     justify-content: center;

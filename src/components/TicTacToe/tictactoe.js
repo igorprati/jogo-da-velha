@@ -5,15 +5,22 @@ import { useState, useEffect } from 'react'
 const initialLinha1 = [null, null, null]
 const initialLinha2 = [null, null, null]
 const initialLinha3 = [null, null, null]
+const valorInicial = 'X'
+let contador = 0
+
 
 export default function TicTacToe() {
 
-    const [valor, setValor] = useState('X')
+    const spanStyle = {
+        backgroundColor: 'red',
+        color: 'white',
+    }
+
+    const [valor, setValor] = useState(valorInicial)
+
     const [linha1, setLinha1] = useState(initialLinha1)
     const [linha2, setLinha2] = useState(initialLinha2)
     const [linha3, setLinha3] = useState(initialLinha3)
-    const vencedorX = ["X", "X", "X"]
-    const vencedorO = ["O", "O", "O"]
 
     const coluna1 = [linha1[0], linha2[0], linha3[0]]
     const coluna2 = [linha1[1], linha2[1], linha3[1]]
@@ -21,83 +28,134 @@ export default function TicTacToe() {
     const diagonal1 = [linha1[0], linha2[1], linha3[2]]
     const diagonal2 = [linha1[2], linha2[1], linha3[0]]
 
-    function verificaVencedor(){
-        if(linha1 === vencedorO){
-            alert('O vencedor foi O')
-        } else if(linha1 === vencedorX){
-            alert('O vencedor foi X')
-        }
+    const vencedorX = ["X", "X", "X"]
+    const vencedorO = ["O", "O", "O"]
 
-        if(linha2 === vencedorO){
-            alert('O vencedor foi O')
-        } else if(linha2 === vencedorX){
-            alert('O vencedor foi X')
-        }
+    const [vencedor, setVencedor] = useState(false)
+    const [contadorX, setContadorX] = useState(0)
+    const [contadorO, setContadorO] = useState(0)
 
-        if(linha3 === vencedorO){
-            alert('O vencedor foi O')
-        } else if(linha3 === vencedorX){
-            alert('O vencedor foi X')
-        }
-
-        if(coluna1 === vencedorO){
-            alert('O vencedor foi O')
-        } else if(coluna1 === vencedorX){
-            alert('O vencedor foi X')
-        }
-
-        if(coluna2 === vencedorO){
-            alert('O vencedor foi O')
-        } else if(coluna2 === vencedorX){
-            alert('O vencedor foi X')
-        }
-
-        if(coluna3 === vencedorO){
-            alert('O vencedor foi O')
-        } else if(coluna3 === vencedorX){
-            alert('O vencedor foi X')
-        }
-
-        if(diagonal1 === vencedorO){
-            alert('O vencedor foi O')
-        } else if(diagonal1 === vencedorX){
-            alert('O vencedor foi X')
-        }
-
-        if(diagonal2 === vencedorO){
-            alert('O vencedor foi O')
-        } else if(diagonal2 === vencedorX){
-            alert('O vencedor foi X')
+    const mudarValor = () => {
+        if(valor === 'X'){
+            setValor('O')
+        } else if(valor === 'O'){
+            setValor('X')
         }
     }
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     // O QUE ACONTECE QUANDO ALTERA UM VALOR DE LINHA1, LINHA2 OU LINHA3
-    //     verificaVencedor()
-
-    // }, [linha1, linha2, linha3])
-
+        // O QUE ACONTECE QUANDO ALTERA UM VALOR DE LINHA1, LINHA2 OU LINHA3
+        if(!vencedor){
+            if(linha1.toString() === vencedorX.toString()){
+                alert('Vencedor é o player "X"')
+                setVencedor(true)
+                setContadorX(contadorX + 1)
+            } else if (linha1.toString() === vencedorO.toString()){
+                alert('Vencedor é o player "O"')
+                setVencedor(true)
+                setContadorO(contadorO + 1)
+            }
+    
+            if(linha2.toString() === vencedorX.toString()){
+                alert('Vencedor é o player "X"')
+                setVencedor(true)
+                setContadorX(contadorX + 1)
+            } else if (linha2.toString() === vencedorO.toString()){
+                alert('Vencedor é o player "O"')
+                setVencedor(true)
+                setContadorO(contadorO + 1)
+            }
+    
+            if(linha3.toString() === vencedorX.toString()){
+                alert('Vencedor é o player "X"')
+                setVencedor(true)
+                setContadorX(contadorX + 1)
+            } else if (linha3.toString() === vencedorO.toString()){
+                alert('Vencedor é o player "O"')
+                setVencedor(true)
+                setContadorO(contadorO + 1)
+            }
+    
+            if(coluna1.toString() === vencedorX.toString()){
+                alert('Vencedor é o player "X"')
+                setVencedor(true)
+                setContadorX(contadorX + 1)
+            } else if (coluna1.toString() === vencedorO.toString()){
+                alert('Vencedor é o player "O"')
+                setVencedor(true)
+                setContadorO(contadorO + 1)
+            }
+    
+            if(coluna2.toString() === vencedorX.toString()){
+                alert('Vencedor é o player "X"')
+                setVencedor(true)
+                setContadorX(contadorX + 1)
+            } else if (coluna2.toString() === vencedorO.toString()){
+                alert('Vencedor é o player "O"')
+                setVencedor(true)
+                setContadorO(contadorO + 1)
+            }
+    
+            if(coluna3.toString() === vencedorX.toString()){
+                alert('Vencedor é o player "X"')
+                setVencedor(true)
+                setContadorX(contadorX + 1)
+            } else if (coluna3.toString() === vencedorO.toString()){
+                alert('Vencedor é o player "O"')
+                setVencedor(true)
+                setContadorO(contadorO + 1)
+            }
+    
+            if(diagonal1.toString() === vencedorX.toString()){
+                alert('Vencedor é o player "X"')
+                setVencedor(true)
+                setContadorX(contadorX + 1)
+            } else if (diagonal1.toString() === vencedorO.toString()){
+                alert('Vencedor é o player "O"')
+                setVencedor(true)
+                setContadorO(contadorO + 1)
+            }
+    
+            if(diagonal2.toString() === vencedorX.toString()){
+                alert('Vencedor é o player "X"')
+                setVencedor(true)
+                setContadorX(contadorX + 1)
+            } else if (diagonal2.toString() === vencedorO.toString()){
+                alert('Vencedor é o player "O"')
+                setVencedor(true)
+                setContadorO(contadorO + 1)
+            }
+        }
+        
+    }, [linha1, linha2, linha3])
 
 
     const jogarNovamente = () => {
+        contador++
         setLinha1(initialLinha1)
         setLinha2(initialLinha2)
         setLinha3(initialLinha3)
+        setVencedor(false)
+        if(vencedor){
+            if(contador % 2 !== 0){
+                setValor('O')
+            } else if(contador % 2 === 0) {
+                setValor('X')
+            }
+        }
     }
 
     const alteraLinha1 = (indexAlterar) => {
         const novaLinha1 = linha1.map((item, index) => {
             if(item){
                 return item
+            } else if (vencedor){
+                return item
             }
             else if (indexAlterar === index) {
                 item = valor
-                if (valor === 'X') {
-                    setValor('O')
-                } else if (valor === 'O') {
-                    setValor('X')
-                }
+                mudarValor()
             }
             
             return item
@@ -105,7 +163,7 @@ export default function TicTacToe() {
         })
 
         setLinha1(novaLinha1)
-        verificaVencedor()
+        
         
     }
 
@@ -113,21 +171,19 @@ export default function TicTacToe() {
         const novaLinha2 = linha2.map((item, index) => {
             if(item){
                 return item
+            } else if (vencedor){
+                return item
             }
             else if (indexAlterar === index) {
                 item = valor
-                if (valor === 'X') {
-                    setValor('O')
-                } else if (valor === 'O') {
-                    setValor('X')
-                }
+                mudarValor()
             }
             
             return item
         })
 
         setLinha2(novaLinha2)
-        verificaVencedor()
+        
         
     }
 
@@ -136,27 +192,25 @@ export default function TicTacToe() {
             if(item){
                 return item
             }
+            else if (vencedor){
+                return item
+            }
             else if (indexAlterar === index) {
                 item = valor
-                if (valor === 'X') {
-                    setValor('O')
-                } else if (valor === 'O') {
-                    setValor('X')
-                }
+                mudarValor()
             }
             
             return item
         })
 
         setLinha3(novaLinha3)
-        verificaVencedor()
+        
 
         
     }
 
-
     return (
-        <>
+
         <div className='layout'>
             <h1 className='vez-jogar'>Vez de jogar: <span className='valor'>{valor}</span></h1>
             <div className='layout__row'>
@@ -168,9 +222,15 @@ export default function TicTacToe() {
             <div className='layout__row'>
                 {linha3.map((item, index) => <span onClick={() => { alteraLinha3(index) }}>{item}</span>)} 
             </div>
+            <div className='resultado'>
+                <span className='o'>O: {contadorO}</span>
+                <span className='o'>X: {contadorX}</span>
+            </div>
             <button className='jogar-novamente' onClick={jogarNovamente}>Jogar Novamente</button>
         </div>
-        </>
+
     )
 }
+
+
 

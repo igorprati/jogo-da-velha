@@ -5,21 +5,17 @@
 .vez-jogar {
     text-align: center;
     margin-bottom: 25px;
+    color: white;
 }
 
 .layout .valor {
-    background-color: rgb(250, 245, 230);
-    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.171);
+    border: 2px solid white;
+    padding: 5px 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-.bg-blue {
-    background-color: blue;
-}
-
-.bg-red {
-    background-color: red;
-}
 
 .layout__row {
     display: flex;
@@ -47,6 +43,7 @@
     .layout__row span {
         width: 100px;
         height: 100px;
+        font-size: 60px;
     }
 }
 
@@ -59,8 +56,30 @@
 }
 
 .jogar-novamente {
-    margin-top: 20px;
-    padding: 5px 10px;
+    color: white;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.219);
+    margin-top: 40px;
+    padding: 20px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 3px solid white;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.144);
     cursor: pointer;
+    transition: all 200ms;
 }
 
+.resultado {
+    margin-top: 20px;
+}
+
+.o {
+    margin: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+.jogar-novamente:hover{
+    transform: scale(1.05);
+}
